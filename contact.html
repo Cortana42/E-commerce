@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Alaoui Store</title>
+</head>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="img/logo-alaoui.png" alt="">
+        </div>
+        <nav>
+        <div class="nav_links">
+            <ul id="MenuItems">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.php">Connexion</a></li>
+        
+            </ul>
+        </div>
+    </nav>
+    
+        <img src="img/panier.png" width="30px" height="30px" style="cursor: pointer; margin-bottom: 10px;" >
+        <img src="img/menu.png" class="bug-menu" onclick="menutoggle()">
+    
+    
+</header>
+<body>
+    <div class="loca">
+        <h2 class="title">Nos points de distribution</h2>
+    </div>
+
+
+
+
+    
+    <!---------API GOOGLE MAPS----------->
+
+<div class="carte">
+        <div id="map"></div>
+    
+    <script>
+        function initMap(){
+            //Map options
+            var options = {
+                zoom:12,
+                center:{lat:48.8534,lng:2.3488} // Paris
+            }
+            // Nouvelle map
+            var map = new
+            google.maps.Map(document.getElementById('map'), options);
+
+
+            addMarker({
+                coords:{lat:48.8637,lng:2.2769},
+                content:'<h2>Paris 16</h2><p style="color: black;">12 Rue de la Pompe</p>'
+            });
+            addMarker({
+                coords:{lat:48.8763,lng:2.3183},
+                content:'<h3>Paris 9</h3><p style="color: black;">36 Boulevard Malesherbes</p>'
+                });
+            addMarker({
+                coords:{lat:48.816363,lng:2.317384},
+                content:'<h2>Montrouge</h2><p style="color: black;">2 Avenue de la République</p>'
+            });
+            addMarker({
+                coords:{lat:48.889736,lng:2.241843},
+                content:'<h2>Neuilly-sur-Seine</h2><p style="color: black;">46 Avenue Jean Moulin</p>'
+            });
+            addMarker({
+                coords:{lat:48.8333,lng:2.25},
+                content:'<h2>Boulogne-Billancourt 16</h2><p style="color: black;">28 Rue du Dôme</p>'
+            });
+            addMarker({
+                coords:{lat:48.9024,lng:2.30434},
+                content:'<h2>Clichy</h2><p style="color: black;">37 Boulevard Jean Jaurès</p>'
+            });
+
+                //Fonction pour ajouter une marque
+            function addMarker(props){
+                    var marker  = new google.maps.Marker({
+                    position: props.coords,
+                    map:map, 
+                    });
+
+                
+
+                if(props.content){
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.content
+                    });
+            
+                    marker.addListener('click', function(){
+                        infoWindow.open(map, marker);
+                    });
+
+                }
+            }
+        }
+
+    </script>
+</div>
+<h2 class="title">Contact</h2>
+<div class="row">
+    <div class="contact">
+        <div class="contact-items">
+            <img src="img/tel.png"><br><p>Tel : +33 766448789</p>
+        </div>
+        <div class="contact-items">
+            <img src="img/mail.png.crdownload"><br><p>Mail : Alaoui.service@gmail.com</p>
+        </div>
+
+    </div>
+    
+
+</div>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCENUs_IpIVRB3zmJhQroQt4iYxe6YS4PU&callback=initMap&libraries=&v=weekly"
+      
+    ></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <div class="footerbar">
+            <div class="row">
+                <div class="footer_col_1">
+                    <h3>Download our App</h3>
+                    <p>Download App for Android and IOS mobile.</p>
+                    <div class="app-logo">
+                        <img src="img/appstore.png" alt="">
+                        <img src="img/googleplay.png" alt="">
+                    </div>
+    
+                </div>
+                <div class="footer_col_2">
+                    <img src="img/logo-alaoui.png" alt="">
+                    <p>Notre but c'est de rendre accessible tous nos meilleurs produits à nos chers clients .</p>
+                </div>
+                <div class="footer_col_3">
+                    <h3>Des Liens Utiles</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog</li>
+                        <li>Policy</li>
+                        <li>Rejoins notre Groupe</li>
+                    </ul>
+                </div> 
+                    <div class="footer_col_4">
+                        <h3>Suivez nous</h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                            <li>Tik Tok</li>
+                        </ul>
+                    </div>    
+                </div>
+                <hr>
+                <p class="copyright">Copyright 2021 - Mohammed Alaoui</p>          
+            </div>
+            
+    
+            
+        </div>
+        
+    </div>
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight() = "0px";
+    
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px"){
+    
+                MenuItems.style.maxHeight = "200px"
+            }
+            else{
+    
+                MenuItems.style.maxHeight = "0px"
+    
+            }
+        }
+    </script>
+    
+</body>
