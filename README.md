@@ -1,6 +1,6 @@
 # E-commerce
 
-Site E-commerce 100% Responsive
+Site E-commerce 100% Responsive Réalisé par Mohammed Alaoui
 - languages Utilisés : HTML CSS JS PHP
 - Utilisation de l'api google maps pour mettre des points de distribution
 - création d'une page d'accueil
